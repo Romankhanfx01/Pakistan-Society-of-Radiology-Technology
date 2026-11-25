@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+/* ============================================================
+   PSRT design tokens — the single source of truth.
+   Brand palette comes from the official seal: deep green + gold.
+   Every component consumes these tokens; no raw colours in JSX.
+   ============================================================ */
+:root {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --bg: #06110c;
+  --bg-soft: #0b1a12;
+  --bg-deep: #030a06;
+  --surface: rgba(255, 255, 255, 0.045);
+  --surface-strong: rgba(255, 255, 255, 0.075);
+  --surface-glass: rgba(4, 18, 11, 0.84);
+  --surface-glass-strong: rgba(4, 18, 11, 0.92);
+  --hero-panel-a: rgba(3, 12, 8, 0.78);
+  --hero-panel-b: rgba(3, 12, 8, 0.38);
+
+  /* Lines */
+  --border: rgba(16, 185, 129, 0.17);
+  --border-strong: rgba(16, 185, 129, 0.42);
+  --border-gold: rgba(217, 166, 33, 0.4);
+
+  /* Type */
+  --text: #f3f8f5;
+  --text-muted: #a2b6aa;
+  --text-faint: #70887a;
+
+  /* Primary (official seal green) */
+  --accent: #10b981;
+  --accent-bright: #34d399;
+  --accent-deep: #047857;
+  --accent-soft: rgba(16, 185, 129, 0.12);
+  --on-accent: #03130b;
+
+  /* Secondary (official seal gold) */
+  --gold: #d9a621;
+  --gold-bright: #f2cd61;
+  --gold-soft: rgba(217, 166, 33, 0.13);
+  --on-gold: #1b1302;
+
+  /* Functional */
+  --danger: #fb7185;
+  --verified: #38bdf8;
+  --verified-ink: #06110c;
+  --social-facebook: #1877f2;
+  --social-instagram: #e4405f;
+  --social-youtube: #ff0000;
+  --social-linkedin: #0a66c2;
+  --social-x: #f5f5f5;
+  --contact-email: #1a73e8;
+  --contact-location: #ea4335;
+  --overlay: rgba(3, 10, 6, 0.88);
+
+  /* Effects */
+  --shadow-card: 0 18px 50px rgba(0, 0, 0, 0.32);
+  --shadow-glow: 0 0 35px rgba(16, 185, 129, 0.22);
+  --veil: linear-gradient(180deg, rgba(6, 17, 12, 0.92), rgba(3, 10, 6, 0.96));
+  --bg-media-opacity: 0.44;
+  --media-veil: transparent;
+  --machine-glow: rgba(255, 195, 100, 0.4);
+  --grid: rgba(16, 185, 129, 0.05);
+  --scan: rgba(16, 185, 129, 0.06);
+
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #f3f7f5;
+  --bg-soft: #ffffff;
+  --bg-deep: #e7efe9;
+  --surface: rgba(4, 78, 46, 0.04);
+  --surface-strong: rgba(255, 255, 255, 0.92);
+  --surface-glass: rgba(255, 255, 255, 0.92);
+  --surface-glass-strong: rgba(255, 255, 255, 0.97);
+  --hero-panel-a: rgba(255, 255, 255, 0.9);
+  --hero-panel-b: rgba(255, 255, 255, 0.64);
+
+  --border: rgba(4, 78, 46, 0.16);
+  --border-strong: rgba(4, 78, 46, 0.4);
+  --border-gold: rgba(146, 103, 8, 0.45);
+
+  --text: #0a2014;
+  --text-muted: #4b6055;
+  --text-faint: #54695c;
+
+  --accent: #047857;
+  --accent-bright: #065f46;
+  --accent-deep: #064e3b;
+  --accent-soft: rgba(4, 120, 87, 0.06);
+  --on-accent: #ffffff;
+
+  --gold: #926708;
+  --gold-bright: #744f06;
+  --gold-soft: rgba(146, 103, 8, 0.1);
+  --on-gold: #ffffff;
+
+  --danger: #be123c;
+  --verified: #0284c7;
+  --verified-ink: #0a2014;
+  --social-x: #000000;
+  --contact-email: #1a73e8;
+  --contact-location: #ea4335;
+  --overlay: rgba(6, 20, 13, 0.72);
+
+  --shadow-card: 0 18px 50px rgba(4, 40, 22, 0.12);
+  --shadow-glow: 0 0 30px rgba(4, 120, 87, 0.14);
+  --veil: linear-gradient(180deg, rgba(243, 247, 245, 0.93), rgba(231, 239, 233, 0.96));
+  --bg-media-opacity: 0.34;
+  --media-veil: rgba(243, 247, 245, 0.62);
+  --machine-glow: rgba(217, 166, 33, 0.18);
+  --grid: rgba(4, 120, 87, 0.06);
+  --scan: rgba(4, 120, 87, 0.05);
+}
+
+@theme {
+  --color-brand: var(--accent);
+  --color-brand-bright: var(--accent-bright);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background-color .3s ease, color .3s ease;
+}
+
+/* Element resets live in the base layer so component styles can override them. */
+@layer base {
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -.035em;
+    line-height: 1.1;
+    margin: 0;
+    color: var(--text);
+  }
+  p { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  button, input, textarea, select { font: inherit; }
+  button { cursor: pointer; }
+  img { display: block; max-width: 100%; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  ::selection { background: var(--accent); color: var(--on-accent); }
+}
+
+.skip-link {
+  position: fixed; left: 16px; top: -60px; z-index: 500;
+  background: var(--accent); color: var(--on-accent);
+  padding: 10px 16px; border-radius: 8px; font-weight: 700;
+  transition: top .18s ease;
+}
+.skip-link:focus { top: 16px; }
+
+/* Shared text utilities */
+.muted { color: var(--text-muted); }
+.faint { color: var(--text-faint); }
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+/* Shared type-scale helpers — use these instead of one-off text-[Npx] utilities. */
+.meta {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase;
+}
+.text-accent { color: var(--accent); }
+.text-gold { color: var(--gold-bright); }

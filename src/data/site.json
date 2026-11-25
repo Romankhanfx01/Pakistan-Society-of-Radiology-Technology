@@ -1,0 +1,23 @@
+{
+  "name": "Pakistan Society of Radiology Technology",
+  "shortName": "PSRT",
+  "tagline": "Educate · Empower · Advance",
+  "mission": "A national professional society advancing medical imaging and radiology technology in Pakistan through education, representation, academic activity and service.",
+  "location": "Peshawar, Khyber Pakhtunkhwa, Pakistan",
+  "email": "abdulwadooodafridi686@gmail.com",
+  "facebook": "https://www.facebook.com/profile.php?id=61596658681301",
+  "stats": [
+    { "value": 463, "suffix": "+", "label": "Community followers" },
+    { "value": 3, "suffix": "", "label": "Published office bearers" },
+    { "value": 1, "suffix": "", "label": "National society" },
+    { "value": 1, "suffix": "", "label": "Published notice" }
+  ],
+  "notice": {
+    "ref": "PSRT/2026/01",
+    "issued": "24th November, 2026",
+    "deadline": "2026-12-03T23:59:59",
+    "deadlineLabel": "03 December 2026",
+    "title": "Divisional & District Coordinators",
+    "email": "abdulwadooodafridi686@gmail.com"
+  }
+}

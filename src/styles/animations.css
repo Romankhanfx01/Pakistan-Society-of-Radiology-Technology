@@ -1,0 +1,42 @@
+/* Motion and atmosphere layer.
+   Only the background photo and restrained surfaces remain — no sweeping beams,
+   pulsing rings, or cursor-tracked gradients. Reduced-motion is respected below. */
+
+.site-backdrop {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden;
+  background: var(--bg);
+}
+.site-backdrop-media {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  opacity: var(--bg-media-opacity);
+}
+.site-backdrop-veil { position: absolute; inset: 0; background: var(--veil); }
+.site-backdrop-filter { position: absolute; inset: 0; background: var(--media-veil); }
+/* A quiet halo echoing the scanner's ring light in the background photograph. */
+.site-backdrop-machine {
+  position: absolute; left: 58%; top: 28%; width: 34%; height: 58%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, var(--machine-glow), transparent 70%);
+  filter: blur(32px); mix-blend-mode: screen;
+}
+
+.glass {
+  background: var(--surface-glass);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.glass-strong {
+  background: var(--surface-glass-strong);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important; scroll-behavior: auto !important;
+  }
+}
