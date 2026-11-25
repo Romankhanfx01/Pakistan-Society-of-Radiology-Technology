@@ -62,26 +62,26 @@ export default function Navbar() {
             <span className="block font-display text-lg font-extrabold tracking-[.1em] text-[var(--text)]">
               PSRT<span className="text-[var(--accent)]">.</span>
             </span>
-            <span className="hidden text-[9px] font-bold uppercase tracking-[.16em] text-[var(--text-muted)] sm:block">
+            <span className="hidden text-[9px] font-bold uppercase tracking-[.16em] text-[var(--text-muted)] xl:block">
               Radiology Technology
             </span>
           </span>
         </a>
 
-        <nav aria-label="Primary" className="ml-auto hidden items-center gap-0.5 xl:flex">
+        <nav aria-label="Primary" className="ml-auto hidden items-center gap-0.5 lg:flex">
           {links.map(l => (
             <a
               key={l.href}
               href={l.href}
               aria-current={active === l.href ? 'page' : undefined}
-              className={`nav-link px-3 text-[11px] font-semibold uppercase tracking-[.14em] ${active === l.href ? 'is-active' : ''}`}
+              className={`nav-link px-2.5 text-[11px] font-semibold uppercase tracking-[.1em] ${active === l.href ? 'is-active' : ''}`}
             >
               {l.label}
             </a>
           ))}
         </nav>
 
-        <div className="ml-auto flex items-center gap-2 xl:ml-4">
+        <div className="ml-auto flex items-center gap-2 lg:ml-3 xl:ml-4">
           <GlobalSearch />
           <button
             type="button"
@@ -92,14 +92,14 @@ export default function Navbar() {
             {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
 
-          <a href="#opportunity" className="btn btn-gold btn-sm hidden md:inline-flex">
+          <a href="#opportunity" className="btn btn-gold btn-sm hidden xl:inline-flex">
             Apply Now <ArrowUpRight className="h-4 w-4" />
           </a>
 
           <button
             ref={toggleRef}
             type="button"
-            className="grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-[var(--border)] bg-[var(--surface)] xl:hidden"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-[var(--border)] bg-[var(--surface)] lg:hidden"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             aria-controls="mobile-navigation"
@@ -111,7 +111,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <nav id="mobile-navigation" ref={menuRef} aria-label="Mobile" className="border-t border-[var(--border)] bg-[var(--bg)] px-6 pb-8 pt-3 xl:hidden">
+        <nav id="mobile-navigation" ref={menuRef} aria-label="Mobile" className="border-t border-[var(--border)] bg-[var(--bg)] px-6 pb-8 pt-3 lg:hidden">
           <p className="meta mb-2 muted">Navigate</p>
           <div className="grid grid-cols-1 gap-x-8 sm:grid-cols-2">
             {links.map(l => (
